@@ -11,7 +11,7 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     {{ __("You're logged in as admin!") }}
 
-                    <p><a href="products" class="btn btn-primary">Products</a></p>
+                    <!-- <p><a href="products" class="btn btn-primary">Products</a></p> -->
                 </div>
             </div>
         </div>

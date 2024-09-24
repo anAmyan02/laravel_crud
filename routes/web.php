@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserHomeController;
+use App\Http\Controllers\UserProductController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -17,6 +19,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    // Route::get('/dashboard', [UserHomeController::class, 'index']);
+    Route::get('/products', [UserProductController::class, 'index'])->name('admin/products');
+
+
 });
 
 require __DIR__.'/auth.php';
@@ -30,7 +37,6 @@ require __DIR__.'/auth.php';
     Route::get('admin/products/edit/{id}', [ProductController::class, 'edit'])->name('admin/products/edit');
     Route::put('admin/products/edit/{id}', [ProductController::class, 'update'])->name('admin/products/update');
     Route::get('admin/products/delete/{id}', [ProductController::class, 'delete'])->name('admin/products/delete');
-
 
 // });
 
